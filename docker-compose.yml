@@ -1,0 +1,17 @@
+version: '3.4'
+
+services:
+  kalleschool:
+    image: kalleschool
+    container_name: kalleschool
+    restart: always
+    build:
+      context: .
+      dockerfile: ./src/Dockerfile
+    ports:
+      - "42047:80"
+    networks:
+      - backend
+networks:
+  backend:
+    driver: bridge
